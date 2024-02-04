@@ -6,8 +6,7 @@ pub fn add(left: usize, right: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use std::net::IpAddr;
-    use std::str::FromStr;
+    use std::net::{IpAddr, Ipv4Addr};
 
     use serde_xml_rs::from_str;
 
@@ -81,7 +80,7 @@ mod tests {
                     report_id: "5717107811868587391".to_string(),
                     date_range: DateRangeType {
                         begin: 1706832000,
-                        end: 1706918399
+                        end: 1706918399,
                     },
                     error: None,
                 },
@@ -95,7 +94,7 @@ mod tests {
                 },
                 record: vec![RecordType {
                     row: RowType {
-                        source_ip: IpAddr::from_str("185.70.43.17").unwrap(),
+                        source_ip: IpAddr::V4(Ipv4Addr::new(185, 70, 43, 17)),
                         count: 1,
                         policy_evaluated: Some(PolicyEvaluatedType {
                             disposition: DispositionType::None,
